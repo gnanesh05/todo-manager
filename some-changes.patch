@@ -1,0 +1,56 @@
+diff --git a/Gemfile b/Gemfile
+index 8f6ad54..0a6fdcb 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -19,7 +19,7 @@ gem 'jbuilder', '~> 2.7'
+ # Use Redis adapter to run Action Cable in production
+ # gem 'redis', '~> 4.0'
+ # Use Active Model has_secure_password
+-# gem 'bcrypt', '~> 3.1.7'
++gem 'bcrypt', '~> 3.1.7'
+ 
+ # Use Active Storage variant
+ # gem 'image_processing', '~> 1.2'
+diff --git a/Gemfile.lock b/Gemfile.lock
+index cc56282..ed1c680 100644
+--- a/Gemfile.lock
++++ b/Gemfile.lock
+@@ -58,6 +58,7 @@ GEM
+       zeitwerk (~> 2.2)
+     addressable (2.7.0)
+       public_suffix (>= 2.0.2, < 5.0)
++    bcrypt (3.1.13)
+     bindex (0.8.1)
+     bootsnap (1.4.6)
+       msgpack (~> 1.0)
+@@ -200,6 +201,7 @@ PLATFORMS
+   ruby
+ 
+ DEPENDENCIES
++  bcrypt (~> 3.1.7)
+   bootsnap (>= 1.4.2)
+   byebug
+   capybara (>= 2.15)
+diff --git a/app/controllers/users_controller.rb b/app/controllers/users_controller.rb
+index 43db060..7a2f05c 100644
+--- a/app/controllers/users_controller.rb
++++ b/app/controllers/users_controller.rb
+@@ -8,7 +8,8 @@ class UsersController < ApplicationController
+   def create
+     User.create!(first_name: params[:first_name],
+                  last_name: params[:last_name],
+-                 email: params[:email])
++                 email: params[:email],
++                 password: params[:password])
+     redirect_to "/"
+   end
+ end
+diff --git a/app/models/user.rb b/app/models/user.rb
+index 0620e90..324e5d6 100644
+--- a/app/models/user.rb
++++ b/app/models/user.rb
+@@ -1,3 +1,4 @@
+ class User < ApplicationRecord
++  has_secure_password
+   has_many :todos
+ end
