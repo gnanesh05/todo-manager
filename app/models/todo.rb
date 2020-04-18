@@ -26,6 +26,10 @@ class Todo < ActiveRecord::Base
     todo.save
   end
 
+  def self.of_user(user)
+    all.where(user_id: user.id)
+  end
+
   def self.due_later
     all.where("due_date > ?", Date.today)
   end
