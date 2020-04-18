@@ -11,4 +11,6 @@
     background-color: lightgray;
     font-size: 14 px;
     margin-bottom:  10 px;
+    display: flex;
+    justify-content: space-between;
 }

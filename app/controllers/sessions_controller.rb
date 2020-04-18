@@ -10,6 +10,13 @@ class SessionsController < ApplicationController
       session[:current_user_id] = user.id
       redirect_to todos_path
     else
+      render plain: "incorrect password/mail"
     end
+  end
+
+  def destroy
+    session[:current_user_id] = nil
+    @current_user = nil
+    redirect_to "/"
   end
 end
