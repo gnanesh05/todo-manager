@@ -7,10 +7,18 @@
     margin-bottom: 20 px;
 }
 .UserHeader{
-    padding: 10 px;
+    padding: 50 px;
     background-color: lightgray;
     font-size: 14 px;
+    height: 30 px;
+    margin-top: 20 px;
     margin-bottom:  10 px;
     display: flex;
     justify-content: space-between;
+}
+
+.Flash-error{
+    margin-bottom: 10 px;
+    color : darkred;
+    font-size: 14 px;
 }
