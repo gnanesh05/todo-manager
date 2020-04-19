@@ -1,14 +1,11 @@
 .Form-Section{
     margin-bottom: 30 px;
-   
-
 }
 .User-Title{
     margin-bottom: 40 px;
     margin-top: 100 px;
     padding-top: 30 px;
 }
-
 .Form-Input{
     padding: 2 px;
     font-size: 20 px;
@@ -18,6 +15,7 @@
 .Form-Label{
 color:gray;
 margin-bottom: 6 px;
+
 }
 .Form-submit{
     

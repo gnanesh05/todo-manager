@@ -13,9 +13,9 @@
     
 
     <% if @current_user %>
-      <p class="UserHeader"> welcome <%= @current_user.first_name %>!
+       <p class="UserHeader"> welcome <%= @current_user.first_name %>!
           <%= link_to "sign-out" ,destroy_session_path, method:"delete"%>      
-      </p>
+       </p>
     <%end%>
 
     <%if flash[:error] %>
